@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro 2</title>
+</head>
+<body>
+    <h1><b>Formulario de registro</b></h1>
+    <form action="action.php">
+        <label for="nombre"> Nombre: 
+           <input type="nombre">
+        </label>
+        <br><br>
+        <label for="apellidos">Apellidos: 
+            <input type="text" id="apellidos">
+           <br><br>
+        </label>
+         <label for="sexo">Sexo:
+          <label for="hombre">
+              <input type="radio" id="mujer" name="sexo">
+              hombre
+          </label>
+          <label for="mujer">
+             <input type="radio" id="mujer" name="sexo">
+               mujer
+            </label>
+            <label for="otro">
+                <input type="radio" id="otro" name="sexo">
+                otro
+         </label>
+        </label>
+        <br><br>
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" value="xxxx@yyyy.xyz">
+        <br><br>
+        <label for="poblacion">Población: </label>
+        <select name="`poblacion" id="poblacion">
+            <option value="alicante">Alicante</option>
+            <option value="madrid">Madrid</option>
+            <option value="sevilla">Sevilla</option>
+         <option value="valencia">Valencia</option>
+        </select>
+        <br><br>
+        <label for="descripcion">Descripción: </label>
+            <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Escriba aquí su descripción."></textarea>
+        <br><br>
+        <label for="info"></label>
+            <input type="checkbox" name="info" id="info">Deseo recibir información sobre novedades y ofertas.
+        <br><br>
+        <label for="declaracion"></label>
+            <input type="checkbox" name="declaracion" id="declaracion">Declaro haber leído y aceptar las condiciones generales del programa y la normativa sobre la protección de datos.
+        <br><br>
+        <input type="button" name="enviar" value="Enviar">
+    </form>
+</body>
+</html>

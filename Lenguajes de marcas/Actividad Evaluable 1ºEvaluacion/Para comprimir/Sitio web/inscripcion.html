@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXI COngreso de Periodismo</title>
+    <link rel="shortcut icon" href="./media/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/985bb80731.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <img class="logo" src="./media/logo1.png" alt="logo periódico">
+        <div class="titulos_header">
+            <h1>XXI CONGRESO <br>DE PERIODISMO DEL CEEDCV</h1>
+            <p>Valencia, 11 al 14 de Marzo de 2023</p>
+            <p>Palacio de Congresos</p>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./programacion.html">Programación</a></li>
+            <li class="ahora">Registro a las jornadas</li>
+        </ul>
+    </nav>
+    <section class="seccion_form">        
+        <form action="resultado.php" method="post">
+            <h2 class="tit_form">Formulario de registro</h2>
+            <hr>
+            <div class="legend">
+                <h4>Datos personales</h4>
+            </div>
+            <input type="text" name="nombre" id="nombre" class="validacion" required pattern="[a-z A-z]+" minlength="2" maxlength="50" placeholder="Ingrese su nombre"><br>
+            <input type="text" name="apellido" id="apellidos" class="validacion" required pattern="[a-z A-z]+" minlength="2" maxlength="128" placeholder="Ingrese sus apellidos"><br>       
+            <input type="tel" name="telefono" id="telefono" class="validacion" required placeholder="Ingrese su teléfono"><br>
+            <input type="email" name="email" id="email" class="validacion" required placeholder="correo@correo.com"><br>
+            <label for="foto" class="foto">Añada una imagen para su ficha</label>
+            <input type="file" name="foto" id="foto" class="dato"><br>               
+            <hr>
+            <div class="legend">
+                <h4>Perfil de usuario</h4>
+            </div>
+            <textarea name="motivos" id="motivos" class="validacion" cols="45" rows="10" required placeholder="Escriba una breve explicación sobre su interés por las jornadas."></textarea><br>
+            <select name="actividad_profesional" id="actividad_profesional" class="validacion select" required>
+                <option selected disabled value="">Selecciona tu actividad profesional</option>
+                <option value="estudiante_bachillerato">Estudiante Bachillerato</option>
+                <option value="estudiante_universitario">Estudiante Universitario</option>
+                <option value="doctorado">Doctorado</option>
+                <option value="profesional_informatico">Profesional Informático</option>
+                <option value="profesor">Profesor</option>
+                <option value="otros">otros</option>
+            </select> <br>
+            <label for="ponencias" class="ponencias">Pulsa Ctrl y selecciona las ponencias en las que estés interesado:</label>
+            <select name="ponencias" id="ponencias" class="validacion select" multiple required size="9">
+                <option value="Conferencia_Inaugural">Conferencia Inaugural</option>
+                <option value="Mesa_de_debate">Mesa de debate</option>
+                <option value="Dura_REalidad">De la más dura realidad da la ficción</option>
+                <option value="Restos_Fotoperiodismo">Los restos del fotoperiodismo en el mundo actual</option>
+                <option value="Historias">Historias de un corresponsal</option>
+                <option value="Informativos">Informativos en TV: ¿Reinvención o extinción?</option>
+                <option value="Periodismo_Territorio">El periodismo del territorio</option>
+                <option value="guiso_como">Yo me lo guiso, yo me lo como</option>
+                <option value="rico">Rico, rico y bien contado.</option>
+            </select>
+            <fieldset class="cont_check">
+                <p class="seleccion">Selecciona los días que asistirás:</p>
+                <label for="3_abril" class="check"><input type="radio" name="dias" id="3_abril" class="radio">  11 de marzo</label><br>
+                <label for="4_abril" class="check"><input type="radio" name="dias" id="4_abril" class="radio"> 12 de marzo</label><br>
+                <label for="todos" class="check"><input type="radio" name="dias" id="todos" class="radio" checked> 13 de marzo</label><br>
+            </fieldset>
+            <div class="check_aviso">
+                <label for="acepto" id="aviso"><input type="checkbox" id="acepto" class="radio" required>He leído y acepto la <a href="#">política de privacidad</a>  y <a href="#">el aviso legal</a></label>
+            </div>
+            <input type="submit" name="enviar" value="Enviar Registro" id="boton">
+        </form>
+    </section>
+    <footer>
+        <div>
+            <p>Actividad realizada por Pablo Giner Barrios para la asignatura de Lenguaje de marcas <br> Primer trimestre 2022/23</p>
+        </div>
+    </footer>
+</body>
+</html>
