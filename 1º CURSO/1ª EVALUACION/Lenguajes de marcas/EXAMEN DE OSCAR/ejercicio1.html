@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+        <header>
+            <img src="./img2/ordi.png" alt="icono página">
+            <nav>
+                <ul>
+                    <li><i class="far fa-window-restore"></i><a href="#"> Servicios del auropuerto</a></li>
+                    <li class="fas fa-plane-departure"><a href="#"> Destinos</a></li>
+                    <li><i class="fas fa-car"></i><a href="#"> Parking</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="#"> Conócenos</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contendor_central">
+            <aside class="lista_lateral">
+                <h2>Regístrate en Ordi. Tendrás un perfil desde donde...</h2>
+                <ul>
+                    <li><i class="fas fa-plane"></i> Reservar y facturar más rápido.</li>
+                    <li><i class="fas fa-plane"></i> Acceder a promociones y descuentos.</li>
+                    <li><i class="fas fa-plane"></i> Guardar tus búsquedas y planificar tus viajes.</li>
+                    <li><i class="fas fa-plane"></i> Y conseguir otras ventajas.</li>
+                </ul>
+            </aside>
+            <form action="post">
+                <h3>Recibe en tu correo elentrónico lasm ejores ofertas, promociones y noticias más destacadas de Ordi.</h3>
+                <hr>
+                <p>Sólo con completar esta información podrás recibir periódicament en tu buzón de correo electrónico: ofertas, promociones, noticias, etc, que te permitirán beneficiarte de ser un cliente de Ordi.</p>
+                <p>SI ya estás dado de alta y deseas gestionar tus preferencias, introduce tu dirección de correo.</p>
+                <label for="email">Correo electrónico:*</label>
+                <input type="email" id="email"><br>
+                <label for="nombre">Nombre:*</label>
+                <input type="text" id="nombre"><br>
+                <label for="nac">Fecha de nacimiento:*</label>
+                <input type="date" id="nac" value="dd/mm/aaaa"><br>
+                <label for="pass">Contraseña:*</label>
+                <input type="password" id="pass" placeholder="Al menos 6 caracteres"><br>
+                <label for="pass2">Confirma tu password:*</label>
+                <input type="password" id="pass2"><br>
+                <p>CUandtos más datos sobre tus preeferencias nos dfacilites. más podremos ajustar a tus intereses las propuestas que te enviemos</p>
+                <label for="personas">Personas que viajan</label>
+                <select name="personas" id="personas"><br>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+                <label for="salida">Aeropuerto de salida</label>
+                <select name="salida" id="salida"><br>
+                    <option value="valencia">valencia</option>
+                    <option value="barcelona">barcelona</option>
+                    <option value="madrid">madrid</option>
+                </select>
+                <label for="destino1">Destino preferente 1: </label>
+                <select name="destino1" id="destino1"><br>
+                    <option value="Londres">Londres</option>
+                    <option value="París">París</option>
+                    <option value="Roma">Roma</option>
+                </select>
+                <label for="destino2">Destino preferente 2: </label>
+                <select name="desitno2" id="destino2"><br>
+                    <option value="Londres">Londres</option>
+                    <option value="París">París</option>
+                    <option value="Roma">Roma</option>
+                </select>
+            </form>
+        </div>
+</body>
+</html>

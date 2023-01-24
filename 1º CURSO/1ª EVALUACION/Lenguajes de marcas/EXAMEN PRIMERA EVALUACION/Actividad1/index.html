@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="'https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap">
+    <link rel="stylesheet" href="url('https://fonts.googleapis.com/css2?family=Pacifico&family=Rowdies:wght@300&family=S
+    atisfy&display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="contenedorImagen">
+            <img src="./img/logo-palau-musica-05.png" alt="solo del palau de la musica">
+        </div>
+        <nav>
+            <ul class="listaHeader">
+                <li>NEWSSLETTER</li>
+                <li>CONTACTO</li>
+                <li>AREA PERSONAL</li>
+                <a href="https://twitter.com/?lang=es"><i class="fab fa-twitter"></i></a>
+                <a href="https://es-es.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            </ul>
+        </nav>
+    </header>
+    <nav class="navegador">
+        <ul>
+            <li>Programación</li>
+            <li>Orquesta</li>
+            <li>Banda</li>
+            <li>Newsletter</li>
+        </ul>
+    </nav>
+    <section>
+        <span class="programacion">Programación</span><span class="palau">Palau</span><span class="2023">2023</span>
+        <article>
+            <h2>Newsletter</h2>
+            <form action="post">
+                <p>Regístrate y recibe en tu correo electrónico todos los eventos de la temporada.</p>
+                <hr>
+                <input type="text" pattern="[a-z][A-Z]" placeholder="Nombre*" required>
+                <input type="email" placeholder="email*" required>
+                <input type="password" placeholder="Contraseña* (6caracteres)" required>
+                <input type="password" placeholder="Repite la contraseña* " required>
+                <p>Cuantos más datos sobre ti nos facilites, mñas podremos ajustar a tus intereses los eventos que enviaremos.</p>
+                <label for="fecha_nac">F.Nacimiento: </label>
+                <input type="date" id="fecha_nac" placeholder="dd/mm/aaaa">
+                <label for="ciudad">Ciudad</label>
+                <select name="ciudad" id="ciudad">
+                    <option value="Valencia">Valencia</option>
+                    <option value="Castellón">Castellón</option>
+                    <option value="Alicante">Alicante</option>
+                </select>
+            </form>
+        </article>
+    </section>
+
+</body>
+</html>

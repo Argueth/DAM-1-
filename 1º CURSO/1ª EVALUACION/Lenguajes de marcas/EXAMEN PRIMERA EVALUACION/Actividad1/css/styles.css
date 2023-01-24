@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.contenedorImagen {
+    background-color: black;
+    width: 20%;
+    height: 180px;
+}
+
+img {
+    width: 100%;
+    color: black;
+    float: left;
+}
+
+header nav {
+    float: left;
+    display: inline;
+    width: 70%;
+    background-color: red;
+}
+
+header nav li {
+    display: inline;
+}
+
+.navegador {
+    float: left;
+}
+
+.navegador li {
+    display: inline;
+}
