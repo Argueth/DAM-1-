@@ -40,12 +40,18 @@ public class Perro extends Mascota{
         this.pulgas = pulgas;
     }
     
+    @Override
     public void Habla() {
         System.out.println("Guau Guau!!!");
     }
     
     @Override
-    public String Muestra() {
-        return String.format("Nombre: %s%nEstado: %s%nFecha de nacimiento: %s%nEdad: %d%nRaza: %s%nPulgas: %b%n", getNombre(), getEstado(), getFecha_nacimiento(), getEdad(), getRaza(), getPulgas());
+    public void Muestra() {
+        System.out.printf("Nombre: %s%nEstado: %s%nFecha de nacimiento: %s%nEdad: %d%nRaza: %s%n", getNombre(), getEstado(), getFecha_nacimiento(), getEdad(), getRaza());
+        if (this.pulgas) {
+            System.out.println("Pulgas: SI");
+        }else {
+            System.out.println("Pulgas: NO");
+        }
     }
 }

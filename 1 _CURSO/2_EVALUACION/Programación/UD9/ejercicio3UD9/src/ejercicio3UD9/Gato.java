@@ -39,11 +39,18 @@ public class Gato extends Mascota{
         this.pelo_largo = pelo_largo;
     }
     
+    @Override
     public void Habla() {
         System.out.println("Miau Miau");
     }
     
-    public String Muestra() {
-        return String.format("Nombre: %s%nEstado: %s%nFecha de nacimiento: %s%nEdad: %d%ncolor: %s%nPelo largo: %b%n", getNombre(), getEstado(), getFecha_nacimiento(), getEdad(), getColor(), getPelo_largo());
+    @Override
+    public void Muestra() {
+        System.out.printf("Nombre: %s%nEstado: %s%nFecha de nacimiento: %s%nEdad: %d%ncolor: %s%n", getNombre(), getEstado(), getFecha_nacimiento(), getEdad(), getColor());
+        if (pelo_largo) {
+            System.out.println("Pelo largo: SI");
+        }else {
+            System.out.println("Pelo largo: NO");
+        }   
     }
 }

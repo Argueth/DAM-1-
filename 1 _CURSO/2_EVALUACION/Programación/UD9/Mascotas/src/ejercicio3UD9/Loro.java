@@ -6,8 +6,8 @@ package ejercicio3UD9;
 
 /**
  *
- * @author pabloginerbarrios
+ * @author pablo
  */
-public class Loro extends Ave{
+public class Loro {
     
 }
