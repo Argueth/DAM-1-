@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 200px;
+    margin: 50px;
+}
+
+.rotate {
+    transform: rotate(45deg);
+}
+
+.scale {
+    transform: scale(.5);
+}
+
+.skewx {
+    transform: skewX(20deg);
+}
+
+.skewy {
+    transform: skewY(20deg);
+}
+
+.translate {
+    transform: translate(50px, 50px);
+}
+

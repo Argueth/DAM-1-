@@ -1,0 +1,154 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200vh;
+    width: 98vw;
+}
+
+.amarillo {
+    height: 100px;
+    width: 50px;
+    position: absolute;
+    top: 500px;
+    right: 0px;
+    background-image: linear-gradient(rgb(255, 166, 0), yellow, orange), url(450_1000.jpg);
+    border-radius: 20px 0px 0px 40px;
+}
+
+.negrazo {
+    height: 50px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: 230px;
+    border-radius: 10px;
+    display: none;
+}
+
+.negrazo::before {
+    content: " ";
+    height: 35px;
+    width: 35px;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -12px;
+    background-color: black;
+    z-index: -1;
+}
+
+body > .amarillo:active {
+    background-image: url(./pene.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body > .amarillo:active .negrazo {
+    display: none;
+}
+
+@keyframes ereccion {
+   0% {
+        width: 50px;
+        background-image: linear-gradient(rgb(255, 166, 0), yellow, orange), url(450_1000.jpg);
+   }
+   25% {
+        background-image: linear-gradient(rgba(255, 166, 0, 0.678), rgba(255, 255, 0, 0.719), rgba(255, 166, 0, 0.74)), url(450_1000.jpg);
+   }
+   50% {
+        width: 125px;
+        background-image: linear-gradient(rgba(255, 166, 0, 0.432), rgba(255, 255, 0, 0.438), rgba(255, 166, 0, 0.445)), url(450_1000.jpg);
+   } 
+   75% {
+        background-image: linear-gradient(rgba(255, 166, 0, 0.178), rgba(255, 255, 0, 0.185), rgba(255, 166, 0, 0.199)), url(450_1000.jpg);
+   }
+   100% {
+        width: 200px;
+        background-image: linear-gradient(rgba(255, 166, 0, 0), rgba(255, 255, 0, 0), rgba(255, 166, 0, 0)), url(450_1000.jpg);
+   }
+}
+
+
+.amarillo:hover {
+    animation-duration: .2s;
+    animation-name: ereccion;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.amarillo:hover .negrazo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grande {
+    height: 10vw;
+    width: 10vw;
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: giro1 3s linear infinite, color1 3s linear infinite;
+    position: absolute;
+    top: 100px;
+}
+
+.pequeño {
+    height: 5vw;
+    width: 5vw;
+    background-color: lightblue;
+    animation: giro2 1.5s linear infinite, color2 3s linear infinite;
+}
+
+@keyframes giro1 {
+    from {
+        transform: rotate(0deg);
+        background-color: lightcoral;
+    }
+    to {
+        transform: rotate(360deg);
+        background-color: lightblue;
+    }
+}
+
+@keyframes color1 {
+    0% {
+        background-color: lightcoral;
+        right: 90vw;
+    }
+    50% {
+        background-color: lightblue;
+        right: 0vw;
+    }
+    100% {
+        background-color: lightcoral;
+        right: 90vw;
+    }
+}
+
+@keyframes giro2 {
+    from {
+        transform: rotate(360deg);
+        background-color: lightblue;
+    }
+    to {
+        transform: rotate(0deg);
+        background-color: lightcoral;
+    }
+}
+
+@keyframes color2 {
+    0% {
+        background-color: lightblue;
+    }
+    50% {
+        background-color: lightcoral;
+    }
+    100% {
+        background-color: lightblue;
+    }
+}

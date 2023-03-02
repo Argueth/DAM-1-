@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    height: 50px;
+    width: 300px;
+    color: white;
+    background-color: blueviolet;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.puntica {
+    height: 30px;
+    width: 30px;
+    transform: rotate(45deg);
+    position: absolute;
+    top: -15px;
+    background-color: blueviolet;
+    left: 30px;
+}
