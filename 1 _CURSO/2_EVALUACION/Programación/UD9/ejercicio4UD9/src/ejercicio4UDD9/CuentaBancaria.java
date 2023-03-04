@@ -53,5 +53,5 @@ public abstract class CuentaBancaria {
         return String.format("DATOS DE LA CUENTA%nIBAN; %s%nSaldo: %.2f%n", this.IBAN, this.saldo);
     }
     
-    public abstract void calcularIntereses();
+    public abstract double calcularIntereses();
 }

@@ -15,7 +15,8 @@ public class CuentaCorriente extends CuentaBancaria {
     }
     
     @Override
-    public void calcularIntereses() {
-       this.saldo*=interesAnualBasico; 
+    public double calcularIntereses() {
+        double interes = this.saldo*interesAnualBasico;
+        return interes;
     }
 }

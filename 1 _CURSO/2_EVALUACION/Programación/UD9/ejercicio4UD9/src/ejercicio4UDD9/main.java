@@ -5,6 +5,7 @@
 package ejercicio4UDD9;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -15,14 +16,9 @@ public class main {
     
     public static void main(String[] args) {
         
-        menu();
-    }
-    
-    public static void menu() {
-        
         int opcion;
         
-        ArrayList<CuentaBancaria> cuentasBancarias = new ArrayList<CuentaBancaria>();
+        ArrayList<CuentaBancaria> cuentasBancarias = new ArrayList();
         
         do {
             System.out.println("""
@@ -49,16 +45,22 @@ public class main {
                     menu2(cuentasBancarias);
                     break;
                 case 2:
+                    eliminarCuenta(cuentasBancarias);
                     break;
                 case 3:
+                    verDatos(cuentasBancarias);
                     break;
                 case 4:
+                    ingresarDinero(cuentasBancarias);
                     break;
                 case 5:
+                    retirarDinero(cuentasBancarias);
                     break;
                 case 6:
+                    traspasarDinero(cuentasBancarias);
                     break;
                 case 7:
+                    intereses(cuentasBancarias);
                     break;
                 case 0:
                     System.out.println("Adiós. Gracias por utilizar nuestros servicios.");
@@ -89,16 +91,24 @@ public class main {
         switch (opcion) {
             case 1:
                 IBAN = comprobarIBAN();
-                saldo = comprobarSaldo();
-                cuentasBancarias.add(new CuentaCorriente (IBAN, saldo));
+                if (unicoIBAN(IBAN, cuentasBancarias)) {
+                    saldo = comprobarSaldo();
+                    cuentasBancarias.add(new CuentaCorriente (IBAN, saldo));
+                }else {
+                    System.out.println("Ese IBAN ya existe. No se pudo crear la cuenta.");
+                }
                 break;
             case 2:
                 IBAN = comprobarIBAN();
-                saldo = comprobarSaldo();
-                cuentasBancarias.add(new CuentaAhorro(IBAN, saldo));
+                if (unicoIBAN(IBAN, cuentasBancarias)) {
+                    saldo = comprobarSaldo();
+                    cuentasBancarias.add(new CuentaAhorro (IBAN, saldo));
+                }else {
+                    System.out.println("Ese IBAN ya existe. No se pudo crear la cuenta.");
+                }
                 break;
             case 0:
-                menu();
+                System.out.println("Volvemos al menú principal");
                 break;
             default:
                 throw new AssertionError();
@@ -132,11 +142,12 @@ public class main {
         String IBAN;
         boolean valido = false;
         
+        
         do {
             System.out.println("Introduce el IBAN");
             System.out.println("2 letras seguidas de 24 numeros.");
             IBAN = entrada.nextLine();
-            if (IBAN.matches("^[a-zA-Z]{2}[0-9]{24}$")) {
+            if (IBAN.matches("^[a-zA-Z]{2}[0-9]{4}$")) {
                 valido = true;
             }else {
                 System.out.println("IBAN no válido. Vuelve a intentarlo.");
@@ -144,6 +155,22 @@ public class main {
         } while (valido == false);
         
         return IBAN;
+    }
+    
+    public static boolean unicoIBAN(String IBAN, ArrayList cuentasBancarias) {
+        int cont = 0;
+        boolean valido = false;
+        
+        Iterator iter = cuentasBancarias.iterator();
+        while (iter.hasNext()) {
+            if (IBAN.equals(iter.next())) {
+                cont++;
+            }
+        }
+        if (cont == 0) {
+            valido = true;
+        }
+        return valido;
     }
     
     public static double comprobarSaldo() {
@@ -162,5 +189,133 @@ public class main {
         } while (valido == false);
         
        return saldo; 
+    }
+    
+    public static void eliminarCuenta(ArrayList cuentasBancarias) {
+        int cont = 0;
+        String IBAN = comprobarIBAN();
+        Iterator iter = cuentasBancarias.iterator();
+        while (iter.hasNext()) {
+            CuentaBancaria cuenta = (CuentaBancaria) iter.next();
+            if (IBAN.equals(cuenta.getIBAN())) {
+                iter.remove();
+                cont++;
+            }
+        }
+        if (cont==0) {
+            System.out.println("La cuenta especificada no existe.");
+        }
+    }
+    
+    public static void verDatos(ArrayList cuentasBancarias) {
+        int cont = 0;
+        String IBAN = comprobarIBAN();
+        Iterator iter = cuentasBancarias.iterator();
+        while (iter.hasNext()) {
+            CuentaBancaria cuenta = (CuentaBancaria) iter.next();
+            if (IBAN.equals(cuenta.getIBAN())) {
+                cuenta.toString();
+                cont++;
+            }
+        }
+        if (cont==0) {
+            System.out.println("La cuenta especificada no existe.");
+        }
+    }
+    
+    public static void ingresarDinero(ArrayList cuentasBancarias) {
+        Scanner entrada = new Scanner(System.in);
+        int cont = 0;
+        String IBAN = comprobarIBAN();
+        Iterator iter = cuentasBancarias.iterator();
+        while (iter.hasNext()) {
+            CuentaBancaria cuenta = (CuentaBancaria) iter.next();
+            if (IBAN.equals(cuenta.getIBAN())) {
+                System.out.println("Indique la cantidad a ingresar");
+                double cantidad = entrada.nextDouble();
+                cuenta.ingresar(cantidad);
+                cont++;
+            }
+        }
+        if (cont==0) {
+            System.out.println("La cuenta especificada no existe.");
+        }
+    }
+    
+    public static void retirarDinero(ArrayList cuentasBancarias) {
+        Scanner entrada = new Scanner(System.in);
+        int cont = 0;
+        String IBAN = comprobarIBAN();
+        Iterator iter = cuentasBancarias.iterator();
+        while (iter.hasNext()) {
+            CuentaBancaria cuenta = (CuentaBancaria) iter.next();
+            if (IBAN.equals(cuenta.getIBAN())) {
+                System.out.println("Indique la cantidad a ingresar");
+                double cantidad = entrada.nextDouble();
+                cuenta.retirar(cantidad);
+                cont++;
+            }
+        }
+        if (cont==0) {
+            System.out.println("La cuenta especificada no existe.");
+        }
+    }
+    
+    public static void traspasarDinero(ArrayList cuentasBancarias) {
+        Scanner entrada = new Scanner(System.in);
+        int cont1 = 0;
+        int cont2 = 0;
+        System.out.println("CUENTA EMISORA");
+        String emisor = comprobarIBAN();
+        Iterator iter1 = cuentasBancarias.iterator();
+        do {
+            while (iter1.hasNext()) {
+                CuentaBancaria envia = (CuentaBancaria) iter1.next();
+                if (emisor.equals(envia.getIBAN())) {
+                    System.out.println("CUENTA RECEPTORA");
+                    String receptor = comprobarIBAN();
+                    Iterator iter2 = cuentasBancarias.iterator();
+                    cont1++;
+                    while (iter2.hasNext()) {
+                        CuentaBancaria recibe = (CuentaBancaria) iter2.next();
+                        if (receptor.equals(recibe.getIBAN())) {
+                            System.out.println("Indique la cantidad a ingresar");
+                            double cantidad = entrada.nextDouble();
+                            envia.Traspasar(recibe, cantidad);
+                            cont2++;
+                        }
+                    }
+                }
+                if (cont1==0) {
+                System.out.println("La cuenta emisora especificada no existe. Vuelva a intentarlo");
+                }
+                if (cont2 == 0) {
+                    System.out.println("La cuenta receptora especificada no existe. Vuelva a intentarlo");
+                }
+            } 
+        } while (cont1 == 0 || cont2 == 0);
+         
+    }
+    
+    public static void intereses(ArrayList cuentasBancarias) {
+        String IBAN = comprobarIBAN();
+        int cont = 0;
+        
+        Iterator iter = cuentasBancarias.iterator();
+        while (iter.hasNext()) {
+            CuentaBancaria cuenta = (CuentaBancaria) iter.next();
+            if (IBAN.equals(cuenta.getIBAN())) {
+                cont++;
+            }
+        }
+        if (cont == 0) {
+            Iterator iter2 = cuentasBancarias.iterator();
+            while (iter2.hasNext()) {
+                CuentaBancaria cuenta = (CuentaBancaria)iter2.next();
+                if (cuenta.getIBAN().equals(IBAN)) {
+                    System.out.println(cuenta.calcularIntereses());
+                }
+            }
+        }
     }
 }

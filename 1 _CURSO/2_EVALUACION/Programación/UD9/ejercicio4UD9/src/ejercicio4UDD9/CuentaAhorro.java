@@ -17,11 +17,14 @@ public class CuentaAhorro extends CuentaBancaria {
     }
     
     @Override
-    public void calcularIntereses() {
+    public double calcularIntereses() {
+        double interes = 0;
         if (this.saldo < saldoMinimo) {
-            this.saldo*=(interesAnualBasico/2);
+            interes = this.saldo*(interesAnualBasico/2);
         }else {
-            this.saldo*=(interesAnualBasico*2);
+            interes = this.saldo*(interesAnualBasico*2);
         }
+        
+        return interes;
     }
 }
