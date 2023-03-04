@@ -145,7 +145,7 @@ public class main {
         
         do {
             System.out.println("Introduce el IBAN");
-            System.out.println("2 letras seguidas de 24 numeros.");
+            System.out.println("2 letras seguidas de 4 numeros.");
             IBAN = entrada.nextLine();
             if (IBAN.matches("^[a-zA-Z]{2}[0-9]{4}$")) {
                 valido = true;
@@ -214,7 +214,7 @@ public class main {
         while (iter.hasNext()) {
             CuentaBancaria cuenta = (CuentaBancaria) iter.next();
             if (IBAN.equals(cuenta.getIBAN())) {
-                cuenta.toString();
+                System.out.println(cuenta.toString());
                 cont++;
             }
         }
@@ -305,17 +305,12 @@ public class main {
         while (iter.hasNext()) {
             CuentaBancaria cuenta = (CuentaBancaria) iter.next();
             if (IBAN.equals(cuenta.getIBAN())) {
+                System.out.println(cuenta.calcularIntereses());
                 cont++;
             }
         }
         if (cont == 0) {
-            Iterator iter2 = cuentasBancarias.iterator();
-            while (iter2.hasNext()) {
-                CuentaBancaria cuenta = (CuentaBancaria)iter2.next();
-                if (cuenta.getIBAN().equals(IBAN)) {
-                    System.out.println(cuenta.calcularIntereses());
-                }
-            }
+            System.out.println("La cuenta especificada no existe.");
         }
     }
 }
